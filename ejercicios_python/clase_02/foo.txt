@@ -1,0 +1,2 @@
+Hola desde el archivo foo.txt
+Esta es la segunda linea de foo.txt
