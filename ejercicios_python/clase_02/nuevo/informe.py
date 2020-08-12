@@ -1,9 +1,8 @@
 import csv
-from pprint import pprint
 
 def leer_camion(path):
     camion = []
-    with open(path) as f:
+    with open(path,'r') as f:
         rows = csv.reader(f)
         headers = next(rows)
         headers
@@ -13,7 +12,7 @@ def leer_camion(path):
 
 def leer_precio(path):
     precios = {}
-    with open(path) as f:
+    with open(path, 'r') as f:
         rows = csv.reader(f)
         try:
             for row in rows:
@@ -36,7 +35,6 @@ def calcula_recaudacion_ventas(lista, diccionario):
 
 def informe(path_camion, path_precios):
     print('############################################################')
-
     camiones = leer_camion(path_camion)
     precios_frutas = leer_precio(path_precios)
 
@@ -47,15 +45,12 @@ def informe(path_camion, path_precios):
     print(f'Costo del camion: $ {costo_camion}')
     print(f'Recaudacion total: $ {recaudacion_total}')
     
-    if ganancia > 0:
-        print(f'La ganancia genera por la venta completa del camion: $ {round(ganancia,2)}')
-    else:
-        print(f'La perdidas generadas por la venta completa del camion: $ {round(ganancia,2)}')
-
+    estado = 'ganancia' if ganancia > 0 else 'perdida'
+    print(f'La {estado} generada por la venta completa del camion: $ {round(ganancia,2)}')
     print('############################################################')
 
 def main():
-    informe('./Data/camion.csv','./Data/precios.csv')
+    informe('./Data/camion.csv','Data/precios.csv')
 
 if __name__ == "__main__":
     main()
