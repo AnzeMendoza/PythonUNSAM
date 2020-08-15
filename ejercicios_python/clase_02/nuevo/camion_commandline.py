@@ -1,4 +1,5 @@
 import csv
+import sys
 
 def costo_camion(path):
     costo = 0
@@ -7,12 +8,17 @@ def costo_camion(path):
         headers = next(rows)
         headers
         for row in rows:
-            costo += int(row[1])*float(row[2])
+            costo += (int(row[1]) if row[1] != '' else 0)*float(row[2])
     return costo
 
 def main():
-    costo = costo_camion('Data/camion.csv')
-    print (f'Costo total: { costo }')
+    if len(sys.argv) == 2:
+        nombre_archivo = sys.argv[1]
+    else:
+        nombre_archivo = 'Data/camion.csv'
+
+    costo = costo_camion(nombre_archivo)
+    print(f'Costo total: { costo }')
 
 if __name__ == "__main__":
     main()
