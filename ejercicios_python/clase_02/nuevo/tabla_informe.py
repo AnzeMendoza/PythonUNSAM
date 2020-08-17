@@ -32,7 +32,7 @@ def hacer_informe(lista_camion, diccionario_precios):
 def imprime_headers(headers):
     subrayado = []
     for _ in range(len(headers)):
-        subrayado.append('----------')
+        subrayado.append('-'*10)
     print('%10s %10s %10s %10s' % headers)
     print('%10s %10s %10s %10s' % tuple(subrayado))
 

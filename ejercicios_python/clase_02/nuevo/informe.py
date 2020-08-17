@@ -34,7 +34,7 @@ def calcula_recaudacion_ventas(lista, diccionario):
     return recaudacion
 
 def informe(path_camion, path_precios):
-    print('##################################################################')
+    print('#'*66)
     camiones = leer_camion(path_camion)
     precios_frutas = leer_precio(path_precios)
 
@@ -47,7 +47,7 @@ def informe(path_camion, path_precios):
     
     estado = 'ganancia' if ganancia > 0 else 'perdida'
     print(f'La {estado} generada por la venta completa del camion: $ {round(ganancia,2)}')
-    print('##################################################################')
+    print('#'*66)
 
 def main():
     informe('./Data/camion.csv','./Data/precios.csv')
