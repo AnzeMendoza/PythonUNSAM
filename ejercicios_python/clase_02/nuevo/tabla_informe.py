@@ -2,7 +2,7 @@ import csv
 # from pprint import pprint
 def leer_camion(path):
     camion = []
-    with open(path,'r') as f:
+    with open(path,'rt', encoding="utf8") as f:
         rows = csv.reader(f)
         headers = next(rows)
         headers
@@ -12,7 +12,7 @@ def leer_camion(path):
 
 def leer_precio(path):
     precios = {}
-    with open(path, 'r') as f:
+    with open(path, 'rt', encoding="utf8") as f:
         rows = csv.reader(f)
         try:
             for row in rows:

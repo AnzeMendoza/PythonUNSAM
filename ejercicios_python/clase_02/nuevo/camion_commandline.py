@@ -3,7 +3,7 @@ import sys
 
 def costo_camion(path):
     costo = 0
-    with open(path) as f:
+    with open(path, 'rt', encoding="utf8") as f:
         rows = csv.reader(f)
         headers = next(rows)
         headers

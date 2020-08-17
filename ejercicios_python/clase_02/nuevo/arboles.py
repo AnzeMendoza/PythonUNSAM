@@ -1,10 +1,11 @@
+ # -*- coding: utf-8 -*-
 import csv
 from pprint import pprint
 from collections import Counter
 
 def leer_parque(path, parque):
     lista_parque = []
-    with open(path, 'r') as f:
+    with open(path, 'rt', encoding="utf8") as f:
         headers = next(f).split(',')
         rows = csv.reader(f)
         for row in rows:
