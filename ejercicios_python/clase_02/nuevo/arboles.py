@@ -79,17 +79,21 @@ def especie_promedio_mas_inclinado(lista_arboles):
         if inclinacion_promedio_maxima < promedio(obtener_inclinaciones(lista_arboles,especie)):
             especie_maxima = especie
             inclinacion_promedio_maxima = promedio(obtener_inclinaciones(lista_arboles,especie))
-    print(f'especie: {especie_maxima}\t maxima inclinacion: {inclinacion_promedio_maxima}')
+    print(f'especie: {especie_maxima}\t maxima inclinacion promedio: {inclinacion_promedio_maxima}')
 
 
 def main():
-    pprint(contar_ejemplares(leer_parque('./Data/arbolado-en-espacios-verdes.csv', 'GENERAL PAZ')))
-    pprint(contar_ejemplares(leer_parque('./Data/arbolado-en-espacios-verdes.csv', 'ANDES, LOS')))
-    pprint(contar_ejemplares(leer_parque('./Data/arbolado-en-espacios-verdes.csv', 'CENTENARIO')))
 
-    lista_arboles = obtener_alturas(leer_parque('./Data/arbolado-en-espacios-verdes.csv', 'GENERAL PAZ'), 'Jacarandá')
-    print('maximo: ',maximo(lista_arboles))
-    print( 'promedio: ',promedio(lista_arboles))
+    for parque in ['GENERAL PAZ', 'ANDES, LOS', 'CENTENARIO']:
+        print(f'#########{parque}#########')
+        pprint(contar_ejemplares(leer_parque('./Data/arbolado-en-espacios-verdes.csv', parque)))
+
+    for parque in ['GENERAL PAZ', 'ANDES, LOS', 'CENTENARIO']:
+        print(f'#########{parque}#########')
+        lista_arboles = obtener_alturas(leer_parque('./Data/arbolado-en-espacios-verdes.csv', parque), 'Jacarandá')
+        print('maximo: ',maximo(lista_arboles))
+        print( 'promedio: ',promedio(lista_arboles))
+
     print(obtener_inclinaciones(leer_parque('./Data/arbolado-en-espacios-verdes.csv', 'GENERAL PAZ'), 'Jacarandá'))
     especimen_mas_inclinado(leer_parque('./Data/arbolado-en-espacios-verdes.csv', 'CENTENARIO'))
     especie_promedio_mas_inclinado(leer_parque('./Data/arbolado-en-espacios-verdes.csv', 'ANDES, LOS'))
