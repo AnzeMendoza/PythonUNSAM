@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 #%%
 #Ejercicio 3.1. Función tiene_a()
 #Comentario: Solamente analiza el primer elemento de la cadena
-#    elimine el else, ya que nesecito recorrer toda la cadena.
+#    elimine el else, ya que necesito recorrer toda la cadena.
 #    A continuación va el código corregido
 def tiene_a(expresion):
     n = len(expresion)

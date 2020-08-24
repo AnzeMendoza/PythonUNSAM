@@ -7,7 +7,7 @@ def buscar_en_lista(lista, valor, izquierda, derecha = None):
     except:
         return -1
 
-def propaga(lista):
+def propagar(lista):
     print(f'entrada: {lista}')
     lista.append(-1)
     izquierda = 0
@@ -23,7 +23,8 @@ def propaga(lista):
     print(f'salida: {lista}')
             
 def main():
-    propaga([ 0, 0, 0, -1, 0, 1, -1, 0, 0, 0, -1, 0, 0, 0, 0])
+    propagar([ 0, 0, 0,-1, 1, 0, 0, 0,-1, 0, 1, 0, 0])
+    propagar([ 0, 0, 0, 1, 0, 0])
 
 if __name__ == "__main__":
     main()

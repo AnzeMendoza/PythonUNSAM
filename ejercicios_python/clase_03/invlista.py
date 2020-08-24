@@ -7,6 +7,8 @@ def invertir_lista(lista):
     return invertida
 
 def main():
+    print('ejercicio 3.8')
+    print(invertir_lista([1,2,3,4,5]))
     print(invertir_lista(['Bogotá', 'Rosario', 'Santiago', 'San Fernando', 'San Miguel']))
 
 if __name__ == "__main__":
