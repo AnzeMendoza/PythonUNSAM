@@ -24,13 +24,14 @@ def leer_precios(path):
             return precios
     return precios
 
-def subyarado(titulo=None):
+def subrayado(titulo=None):
+    size = 80
     if titulo == None:
-        print("#"*50)
+        print("#"*size)
     else:
-        lenght = int((50-len(titulo))/2)
+        lenght = int((size-len(titulo))/2)
         cadena = '#'*lenght+titulo+'#'*lenght
-        tit = (cadena+'#' if len(cadena)!=50 else cadena)
+        tit = (cadena+'#' if len(cadena)!=size else cadena)
         print(tit)
 
 def main():
@@ -41,7 +42,7 @@ def main():
     # precios = leer_precios('Data/precios.csv')
     # valor = sum([s[1]*precios[s[0]] for s in camion ])
     # print('costo del camion a precio de venta: ',valor)
-    subyarado('Consulta de datos')
+    subrayado('Consulta de datos')
     
     # mas100 = [s for s in camion if s[1]>100]
     # pprint(mas100)
@@ -50,7 +51,7 @@ def main():
     # costo10k = [s for s in camion if s[1]*s[2]>10000]
     # print(costo10k)
     
-    subyarado("Extraccion de datos")
+    subrayado("Extraccion de datos")
     
     # nombre_cajon = [(s[0], s[1]) for s in camion]
     # pprint(nombre_cajon)
@@ -68,7 +69,7 @@ def main():
     # camion_precios = {nombre:precios[nombre] for nombre in nombres}
     # print(camion_precios)
     
-    subyarado('Extranccion de datos en CSV')
+    subrayado('Extranccion de datos en CSV')
     
     with open('Data/fecha_camion.csv') as f:
         rows = csv.reader(f)
