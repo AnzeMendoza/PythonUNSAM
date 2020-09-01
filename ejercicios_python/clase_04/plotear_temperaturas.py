@@ -1,7 +1,13 @@
 import numpy as np
+import matplotlib.pyplot as plt 
 
-a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+def muestra_histograma(path_temperaturas):
+    temperaturas = np.load(path_temperaturas)
+    plt.hist(temperaturas, bins=25)
+    plt.show()
 
+def main():
+    muestra_histograma('./Data/temperaturas.npy')
 
-print(a)
-
+if __name__ == "__main__":
+    main()
