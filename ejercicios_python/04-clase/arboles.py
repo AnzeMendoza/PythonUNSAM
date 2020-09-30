@@ -2,12 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
-
 def leer_arboles(nombre_archivo):
     ''' lee el archivo que se le pasa por parametro
         Retorna: una lista de diccionarios.
     '''
-    with open(nombre_archivo) as f:
+    with open(nombre_archivo,encoding='utf-8') as f:
         rows = csv.reader(f)
         headers = next(rows)
         conv = [{name: val for name, val in zip(headers,row)} for row in rows]

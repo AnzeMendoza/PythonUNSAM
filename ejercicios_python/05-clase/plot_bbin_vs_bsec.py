@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+import random
+
+def busqueda_binaria(lista):
+    lista.sort()
+    medio = len(lista)//2
+    print(medio)
+
+
+
+    
+
+def main():
+    print(busqueda_binaria([random.randint(0,100) for _ in range(10)]))
+
+if __name__ == "__main__":
+    main()
+=======
 from random import randint, sample
 import matplotlib.pyplot as plt 
 import numpy as np
@@ -122,3 +140,4 @@ def main():
     
 if __name__ == '__main__':
     main()
+>>>>>>> origin/master
