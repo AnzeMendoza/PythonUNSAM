@@ -1,18 +1,34 @@
+from scipy import signal # para procesar señales
+import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
-import os
 
-def mareas(path):
-    parse_path = os.path.split(path)
-    df_mareas = pd.read_csv(os.path.join(parse_path[0], parse_path[1]), index_col=['Time'], parse_dates=True)
-    
-    dh_25_12_2014 = df_mareas['12-25-2014':].copy()
-    dh_25_12_2014.plot()
-    delta_t = 0 # tiempo que tarda la marea entre ambos puertos
-    delta_h = 0 # diferencia de los ceros de escala entre ambos puertos
-    pd.DataFrame([dh_25_12_2014['H_SF'].shift(delta_t) - delta_h, dh_25_12_2014['H_BA']]).T.plot()
-    
+def calcular_fft(y, freq_sampleo = 24.0):
+    '''y debe ser un vector con números reales
+    representando datos de una serie temporal.
+    freq_sampleo está seteado para considerar 24 datos por unidad.
+    Devuelve dos vectores, uno de frecuencias 
+    y otro con la transformada propiamente.
+    La transformada contiene los valores complejos
+    que se corresponden con respectivas frecuencias.'''
+    N = len(y)
+    freq = np.fft.fftfreq(N, d = 1/freq_sampleo)[:N//2]
+    tran = (np.fft.fft(y)/N)[:N//2]
+    return freq, tran
+
+
 def main():
-    mareas('Data/OBS_SHN_SF-BA.csv')
+    inicio = '2014-01'
+    fin = '2014-06'
+    df = pd.read_csv('Data/OBS_SHN_SF-BA.csv', index_col=['Time'], parse_dates=True)
+    alturas_sf = df[inicio:fin]['H_SF'].to_numpy()
+    alturas_ba = df[inicio:fin]['H_BA'].to_numpy()
+    
+    freq_sf, fft_sf = calcular_fft(alturas_sf)
+    print(signal.find_peaks(np.abs(fft_sf), prominence = 8)[0][0])
+    plt.plot(freq_sf, np.abs(fft_sf))
+    plt.xlabel("Frecuencia")
+    plt.ylabel("Potencia (energía)")
     
 if __name__ == '__main__':
     main()
