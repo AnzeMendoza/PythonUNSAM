@@ -1,13 +1,15 @@
 # costo_camion.py
 
 import informe
+
 #%%
 def costo_camion(filename):
     '''
     Calcula el costo total (cajones*precio) de un camión
     '''
     camion = informe.leer_camion(filename)
-    return sum([s['cajones'] * s['precio'] for s in camion])
+    return sum([s.cajones * s.precio for s in camion])
+
 #%%
 def main(args):
     if len(args) != 2:
