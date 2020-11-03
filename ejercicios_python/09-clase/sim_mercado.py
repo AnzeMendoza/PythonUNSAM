@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-'''
-sim_mercado.py toma datos de "fruta", precio, volumen del archivo mcentral.csv
-Genera un log de movimientos en mercadolog.csv
-'''
-
-import os
 import time
 import random
 

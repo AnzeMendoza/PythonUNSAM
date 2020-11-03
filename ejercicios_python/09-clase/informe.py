@@ -3,6 +3,7 @@ import lote
 import formato_tabla
 from camion import Camion
 
+
 def leer_camion(nom_archivo):
     """
     Lee un archivo de lotes en un camión
