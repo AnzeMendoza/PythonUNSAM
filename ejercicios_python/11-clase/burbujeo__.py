@@ -127,24 +127,12 @@ def grafica_complejidad():
     
     for i, n in enumerate(largos):
         lista = generar_lista(num_elementos=i) # genero lista de largo n
-        l_b = lista.copy()
-        l_i = lista.copy()
-        l_s = lista.copy()
-        l_m = lista.copy()
-        # print('des: ',lista.copy())
-        comps_promedio_burbujeo[i], lb = ord_burbujeo(l_b)
-        # print('ord',lista.copy())
-        comps_promedio_insercion[i], li = ord_insercion(l_i)
-        # print('>>>',comps_promedio_burbujeo, lb)
-        # print('###',comps_promedio_insercion, li)
-        comps_promedio_seleccion[i], ls = ord_seleccion(l_s)
-        comps_promedio_merge[i], lm = ord_merge_sort(l_m)
-    #ahora grafico largos de listas contra operaciones promedio de búsqueda.
-    
-    # print('burbujeo: ', comps_promedio_burbujeo)
-    # print('insercion: ', comps_promedio_insercion)
-    # print('seleccion: ', comps_promedio_seleccion)
 
+        comps_promedio_burbujeo[i], lb = ord_burbujeo(lista.copy())
+        comps_promedio_insercion[i], li = ord_insercion(lista.copy())
+        comps_promedio_seleccion[i], ls = ord_seleccion(lista.copy())
+        comps_promedio_merge[i], lm = ord_merge_sort(lista.copy())
+    
     plt.plot(largos,comps_promedio_burbujeo,label='burbujeo')    
     plt.plot(largos,comps_promedio_insercion,label='insercion')
     plt.plot(largos,comps_promedio_seleccion,label='seleccion')
@@ -158,10 +146,6 @@ def grafica_complejidad():
 ###########################################################################
 def main():
     grafica_complejidad()
-    
-    # print(ord_merge_sort(generar_lista(num_elementos=3)))
-    # for i in range(10):
-    #     print(ord_merge_sort(generar_lista(num_elementos=i)))    
-    
+
 if __name__ == '__main__':
     main()

@@ -2,7 +2,6 @@ from sklearn.datasets import load_iris
 import pandas as pd
 import seaborn as sns
 
-
 def ejercicio_seaborn():
     """Ejercicio 11.10
     Suele tardar unos 10 segundos en levantar el grafico.
